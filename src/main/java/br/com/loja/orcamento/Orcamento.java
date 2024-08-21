@@ -6,11 +6,18 @@ public class Orcamento {
 
     private BigDecimal valor;
 
+    private int quantidadeItems;
+
     public BigDecimal getValor() {
         return valor;
     }
 
-    public Orcamento(BigDecimal valor) {
+    public int getQuantidadeItems() {
+        return quantidadeItems;
+    }
+
+    public Orcamento(BigDecimal valor, int quantidadeItems) {
         this.valor = valor;
+        this.quantidadeItems = quantidadeItems;
     }
 }
