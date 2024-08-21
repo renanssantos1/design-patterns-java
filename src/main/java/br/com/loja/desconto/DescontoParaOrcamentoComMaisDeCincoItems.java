@@ -4,14 +4,18 @@ import br.com.loja.orcamento.Orcamento;
 
 import java.math.BigDecimal;
 
-public class DescontoParaOrcamentoComMaisDeCincoItems {
+public class DescontoParaOrcamentoComMaisDeCincoItems extends Desconto {
+
+    public DescontoParaOrcamentoComMaisDeCincoItems(Desconto proximo) {
+        super(proximo);
+    }
 
     public BigDecimal calcular(Orcamento orcamento){
         if (orcamento.getQuantidadeItems() > 5){
-            return orcamento.getValor().multiply(new BigDecimal("0.1"));
+            return orcamento.getValor().multiply(new BigDecimal("0.01"));
         }
 
-        return BigDecimal.ZERO;
+        return proximo.calcular(orcamento);
     }
 
 }
